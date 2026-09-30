@@ -1,0 +1,9 @@
+{
+  "name": "skycoolsystem",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Sky Cool System Website",
+  "scripts": {
+    "build": "echo 'Static site - no build needed'"
+  }
+}
