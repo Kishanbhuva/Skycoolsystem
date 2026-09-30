@@ -624,12 +624,14 @@ select {
   font-size: 1.25rem;
 }
 
-
 .hero-floating-badge-title {
   font-weight: 700;
   font-size: 0.9375rem;
   line-height: 1.2;
 }
+
+
+
 
 .hero-floating-badge-sub {
   font-size: 0.75rem;
