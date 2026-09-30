@@ -624,6 +624,7 @@ select {
   font-size: 1.25rem;
 }
 
+
 .hero-floating-badge-title {
   font-weight: 700;
   font-size: 0.9375rem;
@@ -1636,6 +1637,7 @@ select {
   color: var(--white);
   border: none;
 }
+
 .btn-pill-primary:hover {
   background-color: #0284c7;
   color: var(--white);
@@ -1647,6 +1649,7 @@ select {
   color: var(--white);
   border: 1.5px solid rgba(255, 255, 255, 0.85);
 }
+
 .btn-pill-outline:hover {
   background-color: rgba(255, 255, 255, 0.15);
   border-color: var(--white);
@@ -1658,6 +1661,7 @@ select {
   color: var(--white);
   border: none;
 }
+
 .btn-pill-navy:hover {
   background-color: #0077c8;
   color: var(--white);
@@ -1669,6 +1673,7 @@ select {
   border: none;
   font-weight: 700;
 }
+
 .btn-pill-cyan:hover {
   background-color: var(--white);
   color: #0a192f;
@@ -1687,6 +1692,7 @@ select {
   border-radius: 50%;
   transition: var(--transition);
 }
+
 .nav-search-btn:hover {
   color: #0077c8;
   background-color: var(--neutral-100);
@@ -1828,6 +1834,7 @@ select {
   line-height: 1.35;
   color: var(--neutral-800);
 }
+
 .trust-text strong {
   display: block;
   color: var(--neutral-900);
