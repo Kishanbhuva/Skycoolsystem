@@ -17,13 +17,13 @@
   <meta property="og:title" content="Industrial Water Coolers (20–100 Liter) | Sky Cool System">
   <meta property="og:description"
     content="Heavy-duty stainless steel industrial water coolers with food-grade SS304 tanks, PUF insulation, and high-efficiency hermetic compressors.">
-  <meta property="og:image" content="/assets/images/sky-cool-water-cooler-isolated.png">
+  <meta property="og:image" content="https://skycoolsystem.com/assets/images/original/water-cooler.png">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Industrial Water Coolers | Sky Cool System">
   <meta name="twitter:description"
     content="Heavy-duty commercial & industrial stainless steel water coolers from 20 to 100 Liters.">
-  <meta name="twitter:image" content="/assets/images/sky-cool-water-cooler-isolated.png">
+  <meta name="twitter:image" content="https://skycoolsystem.com/assets/images/original/water-cooler.png">
 
   <link rel="icon" type="image/png" href="assets/images/sky-cool-logo.png">
   <link rel="shortcut icon" type="image/png" href="assets/images/sky-cool-logo.png">
@@ -35,7 +35,7 @@
     "@context": "https://schema.org",
     "@type": "Product",
     "name": "Sky Cool Industrial Water Cooler",
-    "image": "https://skycoolsystem.com/assets/images/sky-cool-water-cooler-isolated.png",
+    "image": "https://skycoolsystem.com/assets/images/original/water-cooler.png",
     "description": "Heavy-duty commercial and industrial stainless steel drinking water coolers engineered with food-grade SS304 storage tanks and high-ambient refrigeration circuits.",
     "brand": {
       "@type": "Brand",
@@ -107,13 +107,19 @@
           <a href="/about" class="nav-link">About Us</a>
 
           <div class="dropdown">
-            <a href="/products" class="nav-link active">
-              Products
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <a href="/products" class="nav-link active dropdown-toggle-link">
+              <span>Products</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="6 9 12 15 18 9"></polyline>
               </svg>
             </a>
             <div class="dropdown-menu">
+              <a href="/products" class="dropdown-item" style="border-left: 3px solid #0077c8;">
+                <div>
+                  <strong>All Products Lineup</strong>
+                  <span class="dropdown-item-desc">Browse complete Sky Cool manufacturing catalog</span>
+                </div>
+              </a>
               <a href="/refrigerated-air-dryer" class="dropdown-item">
                 <div>
                   <strong>Refrigerated Air Dryers</strong>
@@ -136,21 +142,26 @@
             </div>
           </div>
 
+          <a href="/sizing-calculator" class="nav-link">Sizing Tool</a>
           <a href="/industries" class="nav-link">Industries</a>
-          <a href="/#specs" class="nav-link">Technical Specs</a>
+          <a href="/download-brochure" class="nav-link">Brochure</a>
           <a href="/contact" class="nav-link">Contact</a>
         </nav>
 
         <div class="nav-actions">
-          <button type="button" class="btn btn-primary btn-sm" data-open-quote-modal
+          <button type="button" class="btn-pill btn-pill-primary" data-open-quote-modal
             data-product-name="Industrial Water Cooler">
-            Get Quote
+            Get a Quote
           </button>
           <button class="mobile-toggle" aria-label="Toggle navigation menu">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <line x1="3" y1="12" x2="21" y2="12"></line>
+            <svg class="icon-hamburger" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
               <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="12" x2="21" y2="12"></line>
               <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+            <svg class="icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
             </svg>
           </button>
         </div>
@@ -162,7 +173,7 @@
     <!-- Hero Banner -->
     <section class="section-padding-sm bg-gradient-dark">
       <div class="container">
-        <div style="display:grid; grid-template-columns:1.2fr 0.8fr; gap:3rem; align-items:center;">
+        <div class="product-hero-grid">
           <div>
             <span class="badge badge-dark">Stainless Steel Drinking Solutions</span>
             <h1 class="section-title" style="color:var(--white); margin-bottom:1rem;">Industrial Water Coolers</h1>
@@ -184,7 +195,7 @@
 
           <div style="text-align:center;">
             <div class="hero-image-card" style="padding:1.5rem; background:rgba(255,255,255,0.05); border-radius:12px; display:inline-block;">
-              <img src="assets/images/sky-cool-water-cooler-isolated.png"
+              <img src="assets/images/original/water-cooler.png"
                 alt="Sky Cool Industrial Stainless Steel Water Cooler" style="max-height:360px; max-width:100%; object-fit:contain;">
             </div>
           </div>
@@ -383,28 +394,69 @@
 
         <div class="industries-grid">
           <div class="industry-card">
-            <div class="industry-icon">🏭</div>
-            <div class="industry-name">Manufacturing Plant Floors</div>
+            <div class="industry-card-img-wrap">
+              <img src="assets/images/industries/school.jpg" alt="Schools and Colleges Water Cooler Installation" loading="lazy">
+              <span class="industry-card-badge">Education</span>
+            </div>
+            <div class="industry-card-body">
+              <h3 class="industry-card-title">Schools, Colleges & Institutes</h3>
+              <p class="industry-card-desc">Supplying heavy-traffic, hygienic chilled drinking water across school hallways, university colleges, and student hostels.</p>
+            </div>
           </div>
+
           <div class="industry-card">
-            <div class="industry-icon">🛠️</div>
-            <div class="industry-name">Tool Rooms & Machine Shops</div>
+            <div class="industry-card-img-wrap">
+              <img src="assets/images/industries/medical.jpg" alt="Hospitals and Healthcare Water Cooler Installation" loading="lazy">
+              <span class="industry-card-badge">Healthcare</span>
+            </div>
+            <div class="industry-card-body">
+              <h3 class="industry-card-title">Hospitals & Medical Clinics</h3>
+              <p class="industry-card-desc">Food-grade SS 304 sanitary cold water dispensers for hospital waiting areas, OPD wards, and staff medical lounges.</p>
+            </div>
           </div>
+
           <div class="industry-card">
-            <div class="industry-icon">🍽️</div>
-            <div class="industry-name">Worker Canteens & Dining Halls</div>
+            <div class="industry-card-img-wrap">
+              <img src="assets/images/industries/manufacturing.jpg" alt="Manufacturing Plant Floors Water Cooler" loading="lazy">
+              <span class="industry-card-badge">Industry</span>
+            </div>
+            <div class="industry-card-body">
+              <h3 class="industry-card-title">Manufacturing Plant Floors</h3>
+              <p class="industry-card-desc">Engineered for 24/7 heavy shift duty, providing continuous cooling even in high ambient shop-floor temperatures.</p>
+            </div>
           </div>
+
           <div class="industry-card">
-            <div class="industry-icon">🏢</div>
-            <div class="industry-name">Corporate & Industrial Offices</div>
+            <div class="industry-card-img-wrap">
+              <img src="assets/images/industries/canteen.jpg" alt="Worker Canteen and Dining Halls Water Cooler" loading="lazy">
+              <span class="industry-card-badge">Hospitality</span>
+            </div>
+            <div class="industry-card-body">
+              <h3 class="industry-card-title">Worker Canteens & Dining Halls</h3>
+              <p class="industry-card-desc">High recovery fast-cooling tanks delivering peak-volume cold water during factory lunch and dinner shift rushes.</p>
+            </div>
           </div>
+
           <div class="industry-card">
-            <div class="industry-icon">📦</div>
-            <div class="industry-name">Logistics Hubs & Warehouses</div>
+            <div class="industry-card-img-wrap">
+              <img src="assets/images/industries/office.jpg" alt="Corporate and Industrial Offices Water Cooler" loading="lazy">
+              <span class="industry-card-badge">Corporate</span>
+            </div>
+            <div class="industry-card-body">
+              <h3 class="industry-card-title">Corporate & Industrial Offices</h3>
+              <p class="industry-card-desc">Sleek mirror-finish stainless steel aesthetics with whisper-quiet, energy-efficient hermetic compressor cooling.</p>
+            </div>
           </div>
+
           <div class="industry-card">
-            <div class="industry-icon">🏫</div>
-            <div class="industry-name">Colleges, Institutes & Hospitals</div>
+            <div class="industry-card-img-wrap">
+              <img src="assets/images/industries/machining.jpg" alt="Tool Rooms and Machine Shops Water Cooler" loading="lazy">
+              <span class="industry-card-badge">Workshops</span>
+            </div>
+            <div class="industry-card-body">
+              <h3 class="industry-card-title">Tool Rooms & Machine Shops</h3>
+              <p class="industry-card-desc">Rugged corrosion-proof construction built to withstand industrial dust and rigorous daily machine shop usage.</p>
+            </div>
           </div>
         </div>
 
@@ -449,7 +501,7 @@
           </div>
           <p>
             A premier industrial manufacturer specializing in precision Refrigerated Air Dryers, Industrial
-            Water Chillers, and Stainless Steel Water Coolers in Ahmedabad, Gujarat, India.
+            Water Chillers, and Stainless Steel Water Coolers. Committed to zero-defect manufacturing and 24/7 client satisfaction across India.
           </p>
         </div>
 
@@ -536,40 +588,59 @@
 
         <div class="form-row">
           <div class="form-group">
-            <label for="mName">Your Name *</label>
-            <input type="text" id="mName" name="name" class="form-control" required placeholder="Name">
+            <label for="mName">Your Name <span class="req-star">*</span></label>
+            <div class="input-icon-group">
+              <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+              <input type="text" id="mName" name="name" class="form-control" required placeholder="Full Name" autocomplete="name">
+            </div>
           </div>
           <div class="form-group">
-            <label for="mPhone">Phone Number *</label>
-            <input type="tel" id="mPhone" name="phone" class="form-control" required placeholder="+91 XXXXX XXXXX">
+            <label for="mPhone">Phone Number <span class="req-star">*</span></label>
+            <div class="input-icon-group">
+              <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              <input type="tel" id="mPhone" name="phone" class="form-control" required placeholder="+91 98765 43210" autocomplete="tel">
+            </div>
           </div>
         </div>
 
         <div class="form-group-full">
-          <label for="mEmail">Email Address *</label>
-          <input type="email" id="mEmail" name="email" class="form-control" required placeholder="name@company.com">
+          <label for="mEmail">Email Address <span class="req-star">*</span></label>
+          <div class="input-icon-group">
+            <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            <input type="email" id="mEmail" name="email" class="form-control" required placeholder="name@company.com" autocomplete="email">
+          </div>
         </div>
 
         <div class="form-group-full">
-          <label for="mCapacity">Select Desired Capacity</label>
-          <select id="mCapacity" name="capacity" class="form-control">
-            <option value="20 Liters (SC-WC20)">20 Liters (SC-WC20)</option>
-            <option value="40 Liters (SC-WC40)">40 Liters (SC-WC40)</option>
-            <option value="60 Liters (SC-WC60)">60 Liters (SC-WC60)</option>
-            <option value="80 Liters (SC-WC80)">80 Liters (SC-WC80)</option>
-            <option value="100 Liters (SC-WC100)">100 Liters (SC-WC100)</option>
-            <option value="Multiple / Plant Order">Multiple / Plant Setup</option>
-          </select>
+          <label for="mCapacity">Select Desired Capacity <span class="req-star">*</span></label>
+          <div class="input-icon-group">
+            <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg>
+            <select id="mCapacity" name="capacity" class="form-control" required>
+              <option value="20 Liters (SC-WC20)">20 Liters (SC-WC20)</option>
+              <option value="40 Liters (SC-WC40)">40 Liters (SC-WC40)</option>
+              <option value="60 Liters (SC-WC60)">60 Liters (SC-WC60)</option>
+              <option value="80 Liters (SC-WC80)">80 Liters (SC-WC80)</option>
+              <option value="100 Liters (SC-WC100)">100 Liters (SC-WC100)</option>
+              <option value="Multiple / Plant Order">Multiple / Plant Setup</option>
+            </select>
+          </div>
         </div>
 
         <div class="form-group-full">
           <label for="mMessage">Notes / Delivery Location</label>
-          <textarea id="mMessage" name="message" class="form-control" rows="3"
-            placeholder="Please mention delivery location, number of units, or specific requirements..."></textarea>
+          <div class="input-icon-group textarea-group">
+            <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+            <textarea id="mMessage" name="message" class="form-control" rows="3"
+              placeholder="Please mention delivery location, number of units, or specific requirements..."></textarea>
+          </div>
         </div>
 
-        <button type="submit" class="btn btn-primary" style="width:100%;">
-          Submit Request
+        <button type="submit" class="btn-submit-inquiry">
+          <span>Submit Quote Request</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="22" y1="2" x2="11" y2="13"></line>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+          </svg>
         </button>
       </form>
     </div>

@@ -106,13 +106,19 @@
           <a href="/about" class="nav-link active">About Us</a>
 
           <div class="dropdown">
-            <a href="/products" class="nav-link">
-              Products
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <a href="/products" class="nav-link dropdown-toggle-link">
+              <span>Products</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="6 9 12 15 18 9"></polyline>
               </svg>
             </a>
             <div class="dropdown-menu">
+              <a href="/products" class="dropdown-item" style="border-left: 3px solid #0077c8;">
+                <div>
+                  <strong>All Products Lineup</strong>
+                  <span class="dropdown-item-desc">Browse complete Sky Cool manufacturing catalog</span>
+                </div>
+              </a>
               <a href="/refrigerated-air-dryer" class="dropdown-item">
                 <div>
                   <strong>Refrigerated Air Dryers</strong>
@@ -141,15 +147,19 @@
         </nav>
 
         <div class="nav-actions">
-          <button type="button" class="btn btn-primary btn-sm" data-open-quote-modal
+          <button type="button" class="btn-pill btn-pill-primary" data-open-quote-modal
             data-product-name="General Inquiry">
-            Get Quote
+            Get a Quote
           </button>
           <button class="mobile-toggle" aria-label="Toggle navigation menu">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <line x1="3" y1="12" x2="21" y2="12"></line>
+            <svg class="icon-hamburger" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
               <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="12" x2="21" y2="12"></line>
               <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+            <svg class="icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
             </svg>
           </button>
         </div>
@@ -174,7 +184,7 @@
     <!-- Company Overview -->
     <section class="section-padding">
       <div class="container">
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:3.5rem; align-items:center;">
+        <div class="about-grid">
           <div>
             <span class="badge badge-primary">Our Background</span>
             <h2 class="section-title">Committed to Industrial Manufacturing Excellence</h2>
@@ -197,7 +207,7 @@
 
           <div>
             <div class="hero-image-card" style="background:#f8fafc; border-color:var(--neutral-200); padding:0; overflow:hidden;">
-              <img src="assets/images/sky-cool-factory-assembly.jpg"
+              <img src="assets/images/factory-assembly-bay.jpg"
                 alt="Sky Cool System Manufacturing Plant & Assembly Bays in Ahmedabad" style="width:100%; height:100%; object-fit:cover; display:block;">
             </div>
           </div>
@@ -208,7 +218,7 @@
     <!-- Vision & Mission -->
     <section class="section-padding bg-slate">
       <div class="container">
-        <div style="display:grid; grid-template-columns:repeat(2, 1fr); gap:2.5rem;">
+        <div class="feature-two-col-grid">
           <div class="feature-box" style="padding:2.5rem;">
             <div class="feature-box-icon" style="background:var(--primary-100); color:var(--primary-700);">👁️</div>
             <h3 class="feature-box-title" style="font-size:1.65rem;">Our Vision</h3>
@@ -283,7 +293,7 @@
         <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:1.75rem; margin-top:2rem;">
           <div style="background:var(--white); border-radius:var(--radius-md); overflow:hidden; border:1px solid var(--neutral-200); box-shadow:var(--shadow-sm);">
             <div style="height:230px; overflow:hidden;">
-              <img src="assets/images/sky-cool-factory-assembly.jpg" alt="Sky Cool Assembly Shop Floor" style="width:100%; height:100%; object-fit:cover;">
+              <img src="assets/images/factory-assembly-bay.jpg" alt="Sky Cool Assembly Shop Floor" style="width:100%; height:100%; object-fit:cover;">
             </div>
             <div style="padding:1.25rem;">
               <h4 style="color:var(--primary-900); font-weight:700; margin-bottom:0.35rem;">Main Machine Assembly Floor</h4>
@@ -293,7 +303,7 @@
 
           <div style="background:var(--white); border-radius:var(--radius-md); overflow:hidden; border:1px solid var(--neutral-200); box-shadow:var(--shadow-sm);">
             <div style="height:230px; overflow:hidden;">
-              <img src="assets/images/sky-cool-chiller-production.jpg" alt="Sky Cool Industrial Chiller Production Line" style="width:100%; height:100%; object-fit:cover;">
+              <img src="assets/images/factory-chiller-production.jpg" alt="Sky Cool Industrial Chiller Production Line" style="width:100%; height:100%; object-fit:cover;">
             </div>
             <div style="padding:1.25rem;">
               <h4 style="color:var(--primary-900); font-weight:700; margin-bottom:0.35rem;">Chiller Fabrication Line</h4>
@@ -303,7 +313,7 @@
 
           <div style="background:var(--white); border-radius:var(--radius-md); overflow:hidden; border:1px solid var(--neutral-200); box-shadow:var(--shadow-sm);">
             <div style="height:230px; overflow:hidden;">
-              <img src="assets/images/sky-cool-live-testing.jpg" alt="Sky Cool Live Testing with Water Lines" style="width:100%; height:100%; object-fit:cover;">
+              <img src="assets/images/factory-live-testing.jpg" alt="Sky Cool Live Testing with Water Lines" style="width:100%; height:100%; object-fit:cover;">
             </div>
             <div style="padding:1.25rem;">
               <h4 style="color:var(--primary-900); font-weight:700; margin-bottom:0.35rem;">Live Performance Testing Bay</h4>
@@ -313,7 +323,7 @@
 
           <div style="background:var(--white); border-radius:var(--radius-md); overflow:hidden; border:1px solid var(--neutral-200); box-shadow:var(--shadow-sm);">
             <div style="height:230px; overflow:hidden;">
-              <img src="assets/images/sky-cool-copper-fabrication.jpg" alt="Sky Cool Internal Copper Heat Exchanger Piping" style="width:100%; height:100%; object-fit:cover;">
+              <img src="assets/images/factory-copper-fabrication.jpg" alt="Sky Cool Internal Copper Heat Exchanger Piping" style="width:100%; height:100%; object-fit:cover;">
             </div>
             <div style="padding:1.25rem;">
               <h4 style="color:var(--primary-900); font-weight:700; margin-bottom:0.35rem;">Copper Coil Brazing & Insulation</h4>
@@ -374,8 +384,8 @@
             </div>
           </div>
           <p>
-            Manufacturer specializing in precision Refrigerated Air Dryers, Industrial
-            Water Chillers, and Stainless Steel Water Coolers in Ahmedabad, Gujarat, India.
+            A premier industrial manufacturer specializing in precision Refrigerated Air Dryers, Industrial
+            Water Chillers, and Stainless Steel Water Coolers. Committed to zero-defect manufacturing and 24/7 client satisfaction across India.
           </p>
         </div>
 
@@ -462,28 +472,44 @@
 
         <div class="form-row">
           <div class="form-group">
-            <label for="mName">Your Name *</label>
-            <input type="text" id="mName" name="name" class="form-control" required placeholder="Name">
+            <label for="mName">Your Name <span class="req-star">*</span></label>
+            <div class="input-icon-group">
+              <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+              <input type="text" id="mName" name="name" class="form-control" required placeholder="Full Name" autocomplete="name">
+            </div>
           </div>
           <div class="form-group">
-            <label for="mPhone">Phone Number *</label>
-            <input type="tel" id="mPhone" name="phone" class="form-control" required placeholder="+91 XXXXX XXXXX">
+            <label for="mPhone">Phone Number <span class="req-star">*</span></label>
+            <div class="input-icon-group">
+              <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              <input type="tel" id="mPhone" name="phone" class="form-control" required placeholder="+91 98765 43210" autocomplete="tel">
+            </div>
           </div>
         </div>
 
         <div class="form-group-full">
-          <label for="mEmail">Email Address *</label>
-          <input type="email" id="mEmail" name="email" class="form-control" required placeholder="name@company.com">
+          <label for="mEmail">Email Address <span class="req-star">*</span></label>
+          <div class="input-icon-group">
+            <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            <input type="email" id="mEmail" name="email" class="form-control" required placeholder="name@company.com" autocomplete="email">
+          </div>
         </div>
 
         <div class="form-group-full">
           <label for="mMessage">Specifications / Capacity Needed</label>
-          <textarea id="mMessage" name="message" class="form-control" rows="3"
-            placeholder="Enter desired CFM, pressure, chilling load, or installation requirements..."></textarea>
+          <div class="input-icon-group textarea-group">
+            <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+            <textarea id="mMessage" name="message" class="form-control" rows="3"
+              placeholder="Enter desired CFM, pressure, chilling load, or installation requirements..."></textarea>
+          </div>
         </div>
 
-        <button type="submit" class="btn btn-primary" style="width:100%;">
-          Submit Request
+        <button type="submit" class="btn-submit-inquiry">
+          <span>Submit Quote Request</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="22" y1="2" x2="11" y2="13"></line>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+          </svg>
         </button>
       </form>
     </div>

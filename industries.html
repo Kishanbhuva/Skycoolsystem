@@ -89,13 +89,19 @@
           <a href="/about" class="nav-link">About Us</a>
 
           <div class="dropdown">
-            <a href="/products" class="nav-link">
-              Products
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <a href="/products" class="nav-link dropdown-toggle-link">
+              <span>Products</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="6 9 12 15 18 9"></polyline>
               </svg>
             </a>
             <div class="dropdown-menu">
+              <a href="/products" class="dropdown-item" style="border-left: 3px solid #0077c8;">
+                <div>
+                  <strong>All Products Lineup</strong>
+                  <span class="dropdown-item-desc">Browse complete Sky Cool manufacturing catalog</span>
+                </div>
+              </a>
               <a href="/refrigerated-air-dryer" class="dropdown-item">
                 <div>
                   <strong>Refrigerated Air Dryers</strong>
@@ -124,15 +130,19 @@
         </nav>
 
         <div class="nav-actions">
-          <button type="button" class="btn btn-primary btn-sm" data-open-quote-modal
+          <button type="button" class="btn-pill btn-pill-primary" data-open-quote-modal
             data-product-name="Industry Application Inquiry">
-            Get Quote
+            Get a Quote
           </button>
           <button class="mobile-toggle" aria-label="Toggle navigation menu">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <line x1="3" y1="12" x2="21" y2="12"></line>
+            <svg class="icon-hamburger" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
               <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="12" x2="21" y2="12"></line>
               <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+            <svg class="icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
             </svg>
           </button>
         </div>
@@ -156,137 +166,148 @@
     <!-- Detailed Industries List -->
     <section class="section-padding">
       <div class="container">
-        <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:2rem;">
-
-          <div class="feature-box">
-            <div class="feature-box-icon">⚙️</div>
-            <h3 class="feature-box-title">VMC & CNC Machine Shops</h3>
-            <p class="feature-box-text">
-              Eliminates moisture in pneumatic tool changers and pneumatic chucks. Prevents spindle overheating with
-              constant water chiller temperature control.
-            </p>
+        <div class="industries-grid">
+          <div class="industry-card">
+            <div class="industry-card-img-wrap">
+              <img src="assets/images/industries/medical.jpg" alt="Healthcare and Hospitals Medical Air Drying & Cooling" loading="lazy">
+              <span class="industry-card-badge">Medical & Healthcare</span>
+            </div>
+            <div class="industry-card-body">
+              <h3 class="industry-card-title">Healthcare & Hospitals</h3>
+              <p class="industry-card-desc">Powers medical air distribution, oxygen concentrator plants, dental clinic air networks, sterile lab autoclaves, and patient drinking water.</p>
+            </div>
           </div>
 
-          <div class="feature-box">
-            <div class="feature-box-icon">🏺</div>
-            <h3 class="feature-box-title">Ceramic & Tile Industry</h3>
-            <p class="feature-box-text">
-              Ensures dry compressed air for glazing spray lines, hydraulic pressing valves, and dust extraction
-              systems.
-            </p>
+          <div class="industry-card">
+            <div class="industry-card-img-wrap">
+              <img src="assets/images/industries/school.jpg" alt="Schools and Educational Institutes" loading="lazy">
+              <span class="industry-card-badge">Educational Institutes</span>
+            </div>
+            <div class="industry-card-body">
+              <h3 class="industry-card-title">Schools, Colleges & Universities</h3>
+              <p class="industry-card-desc">Delivering heavy-duty, sanitary chilled drinking water solutions and lab pneumatic air across educational campuses and polytechnics.</p>
+            </div>
           </div>
 
-          <div class="feature-box">
-            <div class="feature-box-icon">🖨️</div>
-            <h3 class="feature-box-title">Offset & Textile Printing</h3>
-            <p class="feature-box-text">
-              Removes water droplets from pneumatic cylinders, plate setters, and fabric ink drying lines to stop ink
-              spotting and cylinder rust.
-            </p>
+          <div class="industry-card">
+            <div class="industry-card-img-wrap">
+              <img src="assets/images/industries/manufacturing.jpg" alt="Heavy Manufacturing and Industrial Assembly Plants" loading="lazy">
+              <span class="industry-card-badge">Manufacturing</span>
+            </div>
+            <div class="industry-card-body">
+              <h3 class="industry-card-title">Heavy Manufacturing & Assembly</h3>
+              <p class="industry-card-desc">Supplies 24/7 dry compressed air for pneumatic assembly tools, robotic pick-and-place arms, and heavy industrial plant infrastructure.</p>
+            </div>
           </div>
 
-          <div class="feature-box">
-            <div class="feature-box-icon">💊</div>
-            <h3 class="feature-box-title">Pharmaceutical Industry</h3>
-            <p class="feature-box-text">
-              Meets strict clean compressed air standards for blister packaging, tablet coating machines, fluid bed
-              dryers, and sterile air lines.
-            </p>
+          <div class="industry-card">
+            <div class="industry-card-img-wrap">
+              <img src="assets/images/industries/machining.jpg" alt="VMC and CNC Machine Shops" loading="lazy">
+              <span class="industry-card-badge">Precision CNC</span>
+            </div>
+            <div class="industry-card-body">
+              <h3 class="industry-card-title">VMC & CNC Machine Shops</h3>
+              <p class="industry-card-desc">Eliminates moisture in pneumatic tool changers and pneumatic chucks. Prevents spindle overheating with constant water chiller temperature control.</p>
+            </div>
           </div>
 
-          <div class="feature-box">
-            <div class="feature-box-icon">🧴</div>
-            <h3 class="feature-box-title">PET Bottle & Blow Moulding</h3>
-            <p class="feature-box-text">
-              Delivers rapid mould chilling to speed up cycle times and provides dry air to high-pressure blow moulding
-              valves.
-            </p>
+          <div class="industry-card">
+            <div class="industry-card-img-wrap">
+              <img src="assets/images/industries/pharma.jpg" alt="Pharmaceutical Industry Cleanrooms" loading="lazy">
+              <span class="industry-card-badge">Pharma & Cleanrooms</span>
+            </div>
+            <div class="industry-card-body">
+              <h3 class="industry-card-title">Pharmaceutical Industry</h3>
+              <p class="industry-card-desc">Meets strict ISO clean compressed air standards for tablet blister packaging, fluid bed dryers, tablet coating, and jacketed reactor chilling.</p>
+            </div>
           </div>
 
-          <div class="feature-box">
-            <div class="feature-box-icon">🚗</div>
-            <h3 class="feature-box-title">Automobile Industry</h3>
-            <p class="feature-box-text">
-              Crucial for robotic paint booths, spot welding guns, pneumatic assembly tools, and engine testing cells.
-            </p>
+          <div class="industry-card">
+            <div class="industry-card-img-wrap">
+              <img src="assets/images/industries/plastic.jpg" alt="PET Bottle and Blow Moulding" loading="lazy">
+              <span class="industry-card-badge">Plastics & Moulding</span>
+            </div>
+            <div class="industry-card-body">
+              <h3 class="industry-card-title">PET Bottle & Blow Moulding</h3>
+              <p class="industry-card-desc">Delivers rapid mould chilling to speed up cycle times and provides dry air to high-pressure blow moulding valves and pneumatic stretch rods.</p>
+            </div>
           </div>
 
-          <div class="feature-box">
-            <div class="feature-box-icon">🏥</div>
-            <h3 class="feature-box-title">Healthcare & Hospitals</h3>
-            <p class="feature-box-text">
-              Powers medical air distribution, oxygen concentrator plants, dental clinic air networks, and sterile
-              laboratory autoclaves.
-            </p>
+          <div class="industry-card">
+            <div class="industry-card-img-wrap">
+              <img src="assets/images/industries/laser.jpg" alt="Laser Cutting and Welding Fabrication" loading="lazy">
+              <span class="industry-card-badge">Laser & Welding</span>
+            </div>
+            <div class="industry-card-body">
+              <h3 class="industry-card-title">Laser Cutting & Fabrication</h3>
+              <p class="industry-card-desc">Maintains high-stability cooling for fiber laser resonators, optical cutting heads, and moisture-free assist air for burr-free cuts.</p>
+            </div>
           </div>
 
-          <div class="feature-box">
-            <div class="feature-box-icon">🧱</div>
-            <h3 class="feature-box-title">Cement & Concrete Plants</h3>
-            <p class="feature-box-text">
-              Operates bag house pulse jet filters, pneumatic silo fluidization cones, and harsh dust environment
-              diverter gates.
-            </p>
+          <div class="industry-card">
+            <div class="industry-card-img-wrap">
+              <img src="assets/images/industries/food_beverage.jpg" alt="Food and Beverage Processing" loading="lazy">
+              <span class="industry-card-badge">Food & Beverage</span>
+            </div>
+            <div class="industry-card-body">
+              <h3 class="industry-card-title">Food & Beverage Processing</h3>
+              <p class="industry-card-desc">Ensures food-grade pneumatic bottling, nitrogen flushing, vacuum sealing, and beverage bottle rinsing without oil or moisture risk.</p>
+            </div>
           </div>
 
-          <div class="feature-box">
-            <div class="feature-box-icon">🔥</div>
-            <h3 class="feature-box-title">Foundry & Metal Casting</h3>
-            <p class="feature-box-text">
-              Powers sand moulding machines, core shooters, furnace cooling jackets, and shot blasting machines.
-            </p>
+          <div class="industry-card">
+            <div class="industry-card-img-wrap">
+              <img src="assets/images/industries/ceramic.jpg" alt="Ceramic and Tile Industry" loading="lazy">
+              <span class="industry-card-badge">Ceramic & Glazing</span>
+            </div>
+            <div class="industry-card-body">
+              <h3 class="industry-card-title">Ceramic & Tile Industry</h3>
+              <p class="industry-card-desc">Ensures dry compressed air for glazing spray lines, hydraulic pressing valves, and constant chiller cooling for polishing spindle arrays.</p>
+            </div>
           </div>
 
-          <div class="feature-box">
-            <div class="feature-box-icon">🌲</div>
-            <h3 class="feature-box-title">Wooden & Furniture Factories</h3>
-            <p class="feature-box-text">
-              Provides dry air for CNC wood routers, automatic edge banders, pneumatic nailers, and lacquer spray guns.
-            </p>
+          <div class="industry-card">
+            <div class="industry-card-img-wrap">
+              <img src="assets/images/industries/printing.jpg" alt="Offset and Textile Printing" loading="lazy">
+              <span class="industry-card-badge">Commercial Printing</span>
+            </div>
+            <div class="industry-card-body">
+              <h3 class="industry-card-title">Offset & Textile Printing</h3>
+              <p class="industry-card-desc">Removes water droplets from pneumatic cylinders, plate setters, and fabric ink drying lines to stop ink spotting and cylinder corrosion.</p>
+            </div>
           </div>
 
-          <div class="feature-box">
-            <div class="feature-box-icon">🧪</div>
-            <h3 class="feature-box-title">Chemical & Petrochemical</h3>
-            <p class="feature-box-text">
-              Chills jacketed reactors and powers pneumatic control valves, level transmitters, and nitrogen generator
-              compressors.
-            </p>
+          <div class="industry-card">
+            <div class="industry-card-img-wrap">
+              <img src="assets/images/industries/canteen.jpg" alt="Worker Canteens and Dining Halls" loading="lazy">
+              <span class="industry-card-badge">Staff Facilities</span>
+            </div>
+            <div class="industry-card-body">
+              <h3 class="industry-card-title">Worker Canteens & Dining Halls</h3>
+              <p class="industry-card-desc">Equipped with Sky Cool heavy-capacity stainless steel drinking water coolers to provide refreshing chilled water for industrial workforce breaks.</p>
+            </div>
           </div>
 
-          <div class="feature-box">
-            <div class="feature-box-icon">🥤</div>
-            <h3 class="feature-box-title">Food & Beverage Processing</h3>
-            <p class="feature-box-text">
-              Ensures food-grade pneumatic bottling, nitrogen flushing, vacuum sealing, and beverage bottle rinsing
-              without moisture risk.
-            </p>
+          <div class="industry-card">
+            <div class="industry-card-img-wrap">
+              <img src="assets/images/industries/office.jpg" alt="Corporate and Industrial Offices" loading="lazy">
+              <span class="industry-card-badge">Corporate Campuses</span>
+            </div>
+            <div class="industry-card-body">
+              <h3 class="industry-card-title">Corporate & Industrial Offices</h3>
+              <p class="industry-card-desc">Supplies high-finish SS water coolers and climate-regulated cooling solutions for engineering headquarters and administration blocks.</p>
+            </div>
           </div>
 
-          <div class="feature-box">
-            <div class="feature-box-icon">🪟</div>
-            <h3 class="feature-box-title">Glass & Mirror Manufacturing</h3>
-            <p class="feature-box-text">
-              Supplies dry air for glass bevelling tables, tempering furnace blowers, and vacuum suction handling cups.
-            </p>
-          </div>
-
-          <div class="feature-box">
-            <div class="feature-box-icon">⚡</div>
-            <h3 class="feature-box-title">Electronics & Semiconductor</h3>
-            <p class="feature-box-text">
-              Protects sensitive SMT pick-and-place nozzles, PCB wave soldering machines, and optical inspection
-              equipment.
-            </p>
-          </div>
-
-          <div class="feature-box">
-            <div class="feature-box-icon">🔧</div>
-            <h3 class="feature-box-title">Tool Rooms & Engineering Workshops</h3>
-            <p class="feature-box-text">
-              Maintains steady performance in pneumatic grinders, torque wrenches, die-sinking EDM machines, and surface
-              grinding tables.
-            </p>
+          <div class="industry-card">
+            <div class="industry-card-img-wrap">
+              <img src="assets/images/industries/warehouse.jpg" alt="Logistics Hubs and Warehouses" loading="lazy">
+              <span class="industry-card-badge">Warehousing & Supply</span>
+            </div>
+            <div class="industry-card-body">
+              <h3 class="industry-card-title">Logistics Hubs & Warehouses</h3>
+              <p class="industry-card-desc">Powers automated sortation conveyors, pneumatic barcode applicators, and high-recovery drinking water stations for warehouse staff.</p>
+            </div>
           </div>
         </div>
 
@@ -310,8 +331,8 @@
             </div>
           </div>
           <p>
-            Manufacturer specializing in precision Refrigerated Air Dryers, Industrial
-            Water Chillers, and Stainless Steel Water Coolers in Ahmedabad, Gujarat, India.
+            A premier industrial manufacturer specializing in precision Refrigerated Air Dryers, Industrial
+            Water Chillers, and Stainless Steel Water Coolers. Committed to zero-defect manufacturing and 24/7 client satisfaction across India.
           </p>
         </div>
 
@@ -398,28 +419,44 @@
 
         <div class="form-row">
           <div class="form-group">
-            <label for="mName">Your Name *</label>
-            <input type="text" id="mName" name="name" class="form-control" required placeholder="Name">
+            <label for="mName">Your Name <span class="req-star">*</span></label>
+            <div class="input-icon-group">
+              <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+              <input type="text" id="mName" name="name" class="form-control" required placeholder="Full Name" autocomplete="name">
+            </div>
           </div>
           <div class="form-group">
-            <label for="mPhone">Phone Number *</label>
-            <input type="tel" id="mPhone" name="phone" class="form-control" required placeholder="+91 XXXXX XXXXX">
+            <label for="mPhone">Phone Number <span class="req-star">*</span></label>
+            <div class="input-icon-group">
+              <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              <input type="tel" id="mPhone" name="phone" class="form-control" required placeholder="+91 98765 43210" autocomplete="tel">
+            </div>
           </div>
         </div>
 
         <div class="form-group-full">
-          <label for="mEmail">Email Address *</label>
-          <input type="email" id="mEmail" name="email" class="form-control" required placeholder="name@company.com">
+          <label for="mEmail">Email Address <span class="req-star">*</span></label>
+          <div class="input-icon-group">
+            <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            <input type="email" id="mEmail" name="email" class="form-control" required placeholder="name@company.com" autocomplete="email">
+          </div>
         </div>
 
         <div class="form-group-full">
           <label for="mMessage">Industry & Application Specifics</label>
-          <textarea id="mMessage" name="message" class="form-control" rows="3"
-            placeholder="Tell us your industry type, flow requirements, or process machinery..."></textarea>
+          <div class="input-icon-group textarea-group">
+            <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+            <textarea id="mMessage" name="message" class="form-control" rows="3"
+              placeholder="Tell us your industry type, flow requirements, or process machinery..."></textarea>
+          </div>
         </div>
 
-        <button type="submit" class="btn btn-primary" style="width:100%;">
-          Submit Request
+        <button type="submit" class="btn-submit-inquiry">
+          <span>Submit Quote Request</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="22" y1="2" x2="11" y2="13"></line>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+          </svg>
         </button>
       </form>
     </div>

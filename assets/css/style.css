@@ -61,6 +61,8 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 76px;
+  overflow-x: hidden;
   font-size: 16px;
 }
 
@@ -72,6 +74,36 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  width: 100%;
+  position: relative;
+}
+
+body.menu-open {
+  overflow: hidden;
+}
+
+/* Ensure anchor link navigation does not get obscured under sticky navbar */
+[id] {
+  scroll-margin-top: 76px;
+}
+
+/* Ensure grid items don't blow out containers on desktop or mobile */
+.hero-mockup-grid > *,
+.hero-grid > *,
+.about-mockup-grid > *,
+.about-grid > *,
+.industries-mockup-grid > *,
+.techspecs-mockup-grid > *,
+.products-mockup-grid > *,
+.product-hero-grid > *,
+.feature-two-col-grid > *,
+.brochure-grid > *,
+.footer-grid > *,
+.contact-grid > *,
+.calculator-grid > *,
+.stats-grid > *,
+.features-grid > * {
+  min-width: 0;
 }
 
 img {
@@ -403,6 +435,32 @@ select {
   color: var(--neutral-800);
   cursor: pointer;
   padding: 0.5rem;
+  line-height: 0;
+  border-radius: var(--radius-sm);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.mobile-toggle:hover {
+  background-color: var(--neutral-100);
+  color: var(--primary-600);
+}
+
+.mobile-toggle .icon-hamburger,
+.mobile-toggle .icon-close {
+  display: block;
+  transition: transform 0.2s ease;
+}
+
+.mobile-toggle .icon-close {
+  display: none;
+}
+
+.mobile-toggle.active .icon-hamburger {
+  display: none;
+}
+
+.mobile-toggle.active .icon-close {
+  display: block;
 }
 
 /* ==========================================================================
@@ -512,11 +570,45 @@ select {
 
 .hero-grid {
   display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
   align-items: center;
   gap: 3.5rem;
   position: relative;
   z-index: 2;
+}
+
+.product-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  align-items: center;
+  gap: 3rem;
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+.feature-two-col-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2.25rem;
+  align-items: start;
+  width: 100%;
+}
+
+.brochure-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 3rem;
+  align-items: center;
+  width: 100%;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: 3rem;
+  align-items: center;
+  width: 100%;
 }
 
 .hero-content h1 {
@@ -807,12 +899,29 @@ select {
    ========================================================================== */
 .table-responsive {
   width: 100%;
+  max-width: 100%;
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-sm);
   border: 1px solid var(--neutral-200);
   background-color: var(--white);
   margin: 1.5rem 0 2.5rem;
+}
+
+@media (max-width: 768px) {
+  .table-responsive::before {
+    content: '↔ Swipe table horizontally to see all specs';
+    display: block;
+    background-color: #f0f9ff;
+    color: #0284c7;
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-align: center;
+    padding: 0.35rem 0.5rem;
+    border-bottom: 1px solid #e0f2fe;
+    letter-spacing: 0.02em;
+  }
 }
 
 .spec-table {
@@ -914,31 +1023,380 @@ select {
   gap: 1.25rem;
 }
 
-.form-group {
+/* ==========================================================================
+   Comprehensive Modern Industrial Form Controls & Cross-Browser Styling
+   Supports: Chrome, Safari, Firefox, Edge, iOS Safari, Android
+   ========================================================================== */
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.form-group,
+.form-group-full {
   display: flex;
   flex-direction: column;
+  margin-bottom: 1.25rem;
+  width: 100%;
+  position: relative;
+}
+
+.form-group:last-child,
+.form-group-full:last-child {
+  margin-bottom: 1.5rem;
+}
+
+/* Modern Accessible Label Design */
+/* Modern Accessible Label Design */
+.form-group label,
+.form-group-full label {
+  display: block;
+  font-family: var(--font-body), system-ui, -apple-system, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #0f172a;
+  margin-bottom: 0.45rem;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+}
+
+.req-star {
+  color: #ef4444;
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin-left: 2px;
+  line-height: 1;
+}
+
+/* ==========================================================================
+   Input Icon Wrapper (.input-icon-group)
+   Positions embedded SVG icons and coordinates focus-within styling
+   ========================================================================== */
+.input-icon-group {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.input-icon-group .input-icon {
+  position: absolute;
+  left: 1.05rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 19px;
+  height: 19px;
+  color: #64748b;
+  pointer-events: none;
+  z-index: 2;
+  transition: color 0.2s cubic-bezier(0.16, 1, 0.3, 1), transform 0.2s ease;
+}
+
+.input-icon-group.textarea-group .input-icon {
+  top: 1.15rem;
+  transform: none;
+}
+
+/* Active Highlight of Icon when field is focused */
+.input-icon-group:focus-within .input-icon {
+  color: #0077c8;
+  transform: translateY(-50%) scale(1.08);
+}
+.input-icon-group.textarea-group:focus-within .input-icon {
+  transform: scale(1.08);
+}
+
+/* ==========================================================================
+   Base Form Control (Inputs, Selects, Textareas)
+   Full cross-engine normalization (Blink, WebKit, Gecko)
+   ========================================================================== */
+.form-control {
+  display: block;
+  width: 100%;
+  min-height: 52px;
+  height: 52px;
+  padding: 0.75rem 1.15rem;
+  font-family: var(--font-body), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 16px !important; /* CRITICAL: 16px prevents iOS Safari viewport auto-zoom */
+  font-weight: 500;
+  line-height: 1.5;
+  color: #0f172a;
+  background-color: #f8fafc;
+  background-clip: padding-box;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 10px;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+  transition: border-color 0.2s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1), 
+              background-color 0.2s ease;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Offset padding when placed inside icon wrapper */
+.input-icon-group .form-control {
+  padding-left: 3rem !important;
+}
+
+/* Hover State */
+.form-control:hover:not(:disabled):not(:focus) {
+  border-color: #94a3b8;
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(15, 23, 42, 0.05);
+}
+
+/* Focus State: High-precision engineering glow */
+.form-control:focus {
+  color: #0f172a;
+  background-color: #ffffff;
+  border-color: #0077c8;
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(0, 119, 200, 0.16), 0 2px 6px rgba(0, 119, 200, 0.08);
+}
+
+/* Disabled / Readonly State */
+.form-control:disabled,
+.form-control[readonly] {
+  background-color: #f1f5f9;
+  border-color: #e2e8f0;
+  color: #64748b;
+  cursor: not-allowed;
+  opacity: 0.85;
+}
+
+/* Cross-Browser Placeholder Styling */
+.form-control::placeholder {
+  color: #94a3b8;
+  opacity: 1; /* Fixes Firefox lowered opacity default */
+  font-weight: 400;
+  font-size: 0.95rem;
+}
+.form-control::-webkit-input-placeholder {
+  color: #94a3b8;
+  font-weight: 400;
+  font-size: 0.95rem;
+}
+.form-control::-moz-placeholder {
+  color: #94a3b8;
+  opacity: 1;
+  font-weight: 400;
+  font-size: 0.95rem;
+}
+.form-control:-ms-input-placeholder {
+  color: #94a3b8;
+  font-weight: 400;
+  font-size: 0.95rem;
+}
+
+/* ==========================================================================
+   Custom Select Element (Flawless Cross-Browser Dropdown Display)
+   Supports: iOS Safari, macOS Safari, Chrome, Edge, Firefox, Android
+   ========================================================================== */
+select.form-control {
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
+  background-color: #f8fafc !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23475569' stroke-width='2.25' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-position: right 1.15rem center !important;
+  background-size: 19px 19px !important;
+  padding: 0.75rem 3rem 0.75rem 1.15rem !important;
+  cursor: pointer;
+  height: 52px !important;
+  min-height: 52px !important;
+  line-height: 1.5 !important;
+  color: #0f172a !important;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+/* With icon group, account for both left icon and right arrow */
+.input-icon-group select.form-control {
+  padding-left: 3rem !important;
+  padding-right: 3rem !important;
+}
+
+/* Remove default Edge/IE arrow */
+select.form-control::-ms-expand {
+  display: none !important;
+}
+
+/* Remove Firefox inner focus dotted outline */
+select.form-control:-moz-focusring {
+  color: transparent !important;
+  text-shadow: 0 0 0 #0f172a !important;
+}
+
+/* Select Hover */
+select.form-control:hover:not(:disabled):not(:focus) {
+  border-color: #94a3b8;
+  background-color: #ffffff !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%230f172a' stroke-width='2.25' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E") !important;
+}
+
+/* Select Focus (Blue accent arrow & focus halo) */
+select.form-control:focus {
+  border-color: #0077c8 !important;
+  outline: none !important;
+  background-color: #ffffff !important;
+  box-shadow: 0 0 0 4px rgba(0, 119, 200, 0.16), 0 2px 6px rgba(0, 119, 200, 0.08) !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%230077c8' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E") !important;
+}
+
+/* Select Options dropdown list styling */
+select.form-control option,
+select.form-control optgroup {
+  font-family: var(--font-body), system-ui, -apple-system, sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: #0f172a !important;
+  background-color: #ffffff !important;
+  padding: 12px 14px;
+  min-height: 40px;
+}
+
+select.form-control option:checked {
+  background-color: #e0f2fe !important;
+  color: #0077c8 !important;
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   Textarea Customization
+   ========================================================================== */
+textarea.form-control {
+  min-height: 120px;
+  height: auto !important;
+  line-height: 1.6;
+  padding: 0.9rem 1.15rem;
+  resize: vertical;
+  border-radius: 10px;
+}
+
+.input-icon-group textarea.form-control {
+  padding-left: 3rem !important;
+  padding-top: 1rem !important;
+}
+
+/* Number Input spinners styling */
+input[type="number"].form-control {
+  -moz-appearance: textfield;
+}
+input[type="number"].form-control::-webkit-inner-spin-button,
+input[type="number"].form-control::-webkit-outer-spin-button {
+  -webkit-appearance: inner-spin-button;
+  opacity: 0.8;
+  cursor: pointer;
+  height: 26px;
+}
+
+/* ==========================================================================
+   High-Impact Industrial Submit Button (.btn-submit-inquiry)
+   ========================================================================== */
+.btn-submit-inquiry {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  width: 100%;
+  min-height: 54px;
+  padding: 0.95rem 1.75rem;
+  font-family: var(--font-body), system-ui, -apple-system, sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.015em;
+  color: #ffffff !important;
+  background: linear-gradient(135deg, #0077c8 0%, #005696 100%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  box-shadow: 0 4px 14px rgba(0, 119, 200, 0.35), 0 1px 2px rgba(15, 23, 42, 0.08);
+  cursor: pointer;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+}
+
+.btn-submit-inquiry:hover {
+  background: linear-gradient(135deg, #0288d1 0%, #006eb3 100%);
+  box-shadow: 0 8px 24px rgba(0, 119, 200, 0.45), 0 2px 4px rgba(15, 23, 42, 0.12);
+  transform: translateY(-2px);
+}
+
+.btn-submit-inquiry:active {
+  transform: translateY(0) scale(0.99);
+  box-shadow: 0 2px 8px rgba(0, 119, 200, 0.3);
+}
+
+.btn-submit-inquiry svg {
+  transition: transform 0.2s ease;
+}
+
+.btn-submit-inquiry:hover svg {
+  transform: translateX(4px);
+}
+
+/* Form Trust Badges below Submit */
+.form-trust-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  margin-top: 1rem;
+  padding-top: 0.85rem;
+  border-top: 1px dashed #e2e8f0;
+  font-size: 0.78rem;
+  color: #64748b;
+  flex-wrap: wrap;
+}
+
+.form-trust-item {
+  display: inline-flex;
+  align-items: center;
   gap: 0.4rem;
 }
 
-.form-group label {
-  font-size: 0.845rem;
-  font-weight: 600;
-  color: var(--neutral-800);
+.form-trust-item svg {
+  color: #10b981;
+  flex-shrink: 0;
 }
 
-.form-control {
-  width: 100%;
-  padding: 0.75rem 1rem;
-  border: 1.5px solid var(--neutral-300);
-  border-radius: var(--radius-sm);
-  background-color: var(--white);
-  color: var(--neutral-900);
-  transition: var(--transition);
+/* ==========================================================================
+   Eliminate WebKit autofill yellow / cyan flash in Chrome, Safari, Edge
+   ========================================================================== */
+input.form-control:-webkit-autofill,
+input.form-control:-webkit-autofill:hover,
+input.form-control:-webkit-autofill:focus,
+input.form-control:-webkit-autofill:active,
+textarea.form-control:-webkit-autofill,
+textarea.form-control:-webkit-autofill:hover,
+textarea.form-control:-webkit-autofill:focus,
+select.form-control:-webkit-autofill,
+select.form-control:-webkit-autofill:hover,
+select.form-control:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0px 1000px #ffffff inset !important;
+  box-shadow: 0 0 0px 1000px #ffffff inset !important;
+  -webkit-text-fill-color: #0f172a !important;
+  caret-color: #0f172a !important;
+  border-color: #cbd5e1 !important;
+  transition: background-color 5000s ease-in-out 0s;
 }
 
-.form-control:focus {
-  border-color: var(--primary-500);
-  box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+/* Avoid floating buttons blocking form inputs while typing */
+body.form-focused .floating-actions,
+body:has(form input:focus) .floating-actions,
+body:has(form select:focus) .floating-actions,
+body:has(form textarea:focus) .floating-actions {
+  opacity: 0.15;
+  pointer-events: none;
+  transform: scale(0.9);
+  transition: opacity 0.25s ease, transform 0.25s ease;
 }
 
 .calc-result-box {
@@ -978,54 +1436,94 @@ select {
 }
 
 /* ==========================================================================
-   Industries Grid
+   Industries Grid & Visual Application Cards
    ========================================================================== */
 .industries-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
 }
 
 .industry-card {
   background: var(--white);
   border: 1px solid var(--neutral-200);
-  border-radius: var(--radius-md);
-  padding: 1.5rem 1.25rem;
-  text-align: center;
-  transition: var(--transition);
+  border-radius: var(--radius-lg, 12px);
+  overflow: hidden;
+  text-align: left;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+  display: flex;
+  flex-direction: column;
 }
 
 .industry-card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-5px);
   border-color: var(--primary-400);
-  box-shadow: var(--shadow-md);
-  background-color: var(--primary-50);
+  box-shadow: 0 12px 24px -4px rgba(15, 23, 42, 0.12);
 }
 
-.industry-icon {
-  width: 48px;
-  height: 48px;
-  margin: 0 auto 1rem;
-  background-color: var(--primary-100);
-  color: var(--primary-600);
-  border-radius: var(--radius-sm);
-  display: flex;
+.industry-card-img-wrap {
+  position: relative;
+  width: 100%;
+  height: 185px;
+  overflow: hidden;
+  background-color: var(--neutral-100);
+}
+
+.industry-card-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.industry-card:hover .industry-card-img-wrap img {
+  transform: scale(1.06);
+}
+
+.industry-card-badge {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  background: rgba(15, 23, 42, 0.82);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.25rem 0.65rem;
+  border-radius: 9999px;
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  font-size: 1.35rem;
-  transition: var(--transition);
+  gap: 0.35rem;
+  z-index: 2;
 }
 
-.industry-card:hover .industry-icon {
-  background-color: var(--primary-500);
-  color: var(--white);
+.industry-card-body {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
+.industry-card-title,
 .industry-name {
   font-family: var(--font-heading);
-  font-size: 0.9375rem;
+  font-size: 1.05rem;
   font-weight: 700;
   color: var(--neutral-900);
+  margin-bottom: 0.4rem;
+  line-height: 1.35;
+}
+
+.industry-card-desc {
+  font-size: 0.85rem;
+  color: var(--neutral-600);
+  line-height: 1.5;
+  margin-bottom: 0;
 }
 
 /* ==========================================================================
@@ -1194,37 +1692,42 @@ select {
 }
 
 .inquiry-form-card {
-  background: var(--white);
-  border: 1px solid var(--neutral-200);
-  border-radius: var(--radius-xl);
-  padding: 3rem;
-  box-shadow: var(--shadow-lg);
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 18px;
+  padding: 2.75rem 2.5rem;
+  box-shadow: 0 20px 45px -15px rgba(15, 23, 42, 0.08), 0 0 0 1px rgba(226, 232, 240, 0.7);
+  position: relative;
+  overflow: hidden;
+}
+
+.inquiry-form-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #0077c8 0%, #38bdf8 100%);
 }
 
 .inquiry-form-title {
   font-family: var(--font-heading);
   font-size: 1.85rem;
   font-weight: 700;
-  color: var(--neutral-900);
-  margin-bottom: 0.5rem;
+  color: #0f172a;
+  margin-bottom: 0.45rem;
+  letter-spacing: -0.02em;
 }
 
 .inquiry-form-desc {
-  color: var(--neutral-500);
+  color: #64748b;
   font-size: 0.9375rem;
+  line-height: 1.5;
   margin-bottom: 2rem;
 }
 
-.form-row {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.25rem;
-  margin-bottom: 1.25rem;
-}
 
-.form-group-full {
-  margin-bottom: 1.25rem;
-}
 
 /* ==========================================================================
    Modal Dialog
@@ -1251,16 +1754,26 @@ select {
 
 .modal-container {
   background: var(--white);
-  border-radius: var(--radius-xl);
+  border-radius: 18px;
   max-width: 600px;
   width: 100%;
   max-height: 90vh;
   overflow-y: auto;
-  box-shadow: var(--shadow-xl);
+  box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.25);
   position: relative;
   transform: scale(0.95);
   transition: var(--transition);
   padding: 2.5rem;
+}
+
+.modal-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #0077c8 0%, #38bdf8 100%);
 }
 
 .modal-overlay.active .modal-container {
@@ -1460,160 +1973,6 @@ select {
 .toast-notice.show {
   transform: translateX(-50%) translateY(0);
   opacity: 1;
-}
-
-/* ==========================================================================
-   Responsive Breakpoints
-   ========================================================================== */
-@media (max-width: 1024px) {
-  .hero-grid {
-    grid-template-columns: 1fr;
-    text-align: center;
-    gap: 2.5rem;
-  }
-
-  .hero-desc {
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .hero-actions,
-  .hero-features-list {
-    justify-content: center;
-  }
-
-  .stats-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .stat-card:nth-child(2) {
-    border-right: none;
-  }
-
-  .product-showcase-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .calculator-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .industries-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .features-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .footer-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 768px) {
-  .topbar {
-    display: none;
-  }
-
-  .mobile-toggle {
-    display: block;
-  }
-
-  .nav-links {
-    position: fixed;
-    top: 80px;
-    left: 0;
-    width: 100%;
-    background-color: var(--white);
-    flex-direction: column;
-    padding: 1.5rem;
-    box-shadow: var(--shadow-xl);
-    border-bottom: 1px solid var(--neutral-200);
-    display: none;
-    max-height: calc(100vh - 80px);
-    overflow-y: auto;
-  }
-
-  .nav-links.open {
-    display: flex;
-  }
-
-  .nav-link {
-    width: 100%;
-    padding: 0.85rem 1rem;
-  }
-
-  .dropdown-menu {
-    position: static;
-    opacity: 1;
-    visibility: visible;
-    transform: none;
-    box-shadow: none;
-    border: none;
-    background-color: var(--neutral-50);
-    margin-top: 0.5rem;
-  }
-
-  .hero-content h1 {
-    font-size: 2.35rem;
-  }
-
-  .section-title {
-    font-size: 1.85rem;
-  }
-
-  .industries-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .features-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .cf-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .calc-inputs-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .form-row {
-    grid-template-columns: 1fr;
-  }
-
-  .contact-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .brochure-grid {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-
-  .brochure-content p {
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .footer-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .stats-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .stat-card {
-    border-right: none;
-    border-bottom: 1px solid var(--neutral-200);
-    padding-bottom: 1.25rem;
-  }
-
-  .stat-card:last-child {
-    border-bottom: none;
-  }
 }
 
 /* ==========================================================================
@@ -2136,6 +2495,26 @@ select {
   box-shadow: 0 6px 15px rgba(0, 119, 200, 0.08);
 }
 
+.industry-tile-thumb {
+  width: 100%;
+  height: 78px;
+  border-radius: var(--radius-sm, 6px);
+  overflow: hidden;
+  background-color: var(--neutral-100);
+}
+
+.industry-tile-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.industry-tile:hover .industry-tile-thumb img {
+  transform: scale(1.08);
+}
+
 .industry-tile-icon {
   width: 44px;
   height: 44px;
@@ -2307,11 +2686,32 @@ select {
   margin: 0;
 }
 
-/* Responsive Overrides for Mockup Sections */
+/* Workshop & Plant Showcase Grid */
+.plant-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+/* ==========================================================================
+   Consolidated Responsive Breakpoints (Placed at end of stylesheet)
+   ========================================================================== */
 @media (max-width: 1024px) {
-  .hero-mockup-grid {
+  .hero-mockup-grid,
+  .hero-grid {
     grid-template-columns: 1fr;
     gap: 2rem;
+    text-align: center;
+  }
+
+  .hero-desc {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-actions,
+  .hero-features-list {
+    justify-content: center;
   }
 
   .about-mockup-grid {
@@ -2336,49 +2736,776 @@ select {
   .products-mockup-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .product-showcase-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .calculator-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .industries-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stat-card:nth-child(2) {
+    border-right: none;
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 768px) {
+  .topbar {
+    display: none;
+  }
+
+  .container {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
+  /* Header & Navigation */
+  .nav-wrapper {
+    height: 66px;
+  }
+
+  .brand-logo {
+    gap: 0.6rem;
+  }
+
+  .brand-logo img {
+    height: 38px;
+    width: auto;
+  }
+
+  .brand-name {
+    font-size: 1.15rem;
+    line-height: 1.1;
+  }
+
+  .brand-tagline {
+    font-size: 0.58rem;
+    letter-spacing: 0.03em;
+    max-width: 140px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .nav-actions {
+    gap: 0.45rem;
+  }
+
+  .nav-search-btn {
+    display: none !important;
+  }
+
+  .nav-actions .btn-pill,
+  .nav-actions .btn {
+    padding: 0.42rem 0.85rem !important;
+    font-size: 0.78rem !important;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  .mobile-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    padding: 0;
+    border-radius: var(--radius-sm);
+    background-color: var(--neutral-100);
+    color: var(--neutral-800);
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+
+  .mobile-toggle svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 66px;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 66px);
+    background-color: var(--white);
+    flex-direction: column;
+    padding: 1.25rem 1.25rem 2.5rem;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+    border-bottom: 1px solid var(--neutral-200);
+    display: none;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    z-index: 1001;
+    gap: 0.35rem;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-link {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    font-size: 1.05rem;
+    border-radius: var(--radius-md);
+    border-bottom: 1px solid var(--neutral-100);
+  }
+
+  .nav-link:hover,
+  .nav-link.active {
+    background-color: #f0f9ff;
+    color: var(--primary-600);
+  }
+
+  .dropdown {
+    width: 100%;
+  }
+
+  .dropdown-toggle-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    cursor: pointer;
+  }
+
+  .dropdown-toggle-link svg {
+    transition: transform 0.25s ease;
+  }
+
+  .dropdown.open .dropdown-toggle-link svg {
+    transform: rotate(180deg);
+  }
+
+  .dropdown-menu {
+    display: none;
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    box-shadow: none;
+    border: 1px solid #e2e8f0;
+    background-color: #f8fafc;
+    border-radius: var(--radius-md);
+    margin: 0.35rem 0 0.65rem;
+    padding: 0.5rem;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .dropdown.open .dropdown-menu {
+    display: flex;
+  }
+
+  .dropdown-item {
+    display: block;
+    padding: 0.75rem 0.85rem;
+    background: #ffffff;
+    border: 1px solid #edf2f7;
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+  }
+
+  .dropdown-item:hover,
+  .dropdown-item:active {
+    background-color: #f0f9ff;
+    border-color: #bae6fd;
+    transform: none;
+  }
+
+  .dropdown-item strong {
+    display: block;
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.3;
+  }
+
+  .dropdown-item-desc {
+    display: block;
+    font-size: 0.78rem;
+    color: #64748b;
+    margin-top: 2px;
+  }
+
+  /* Hero Section */
+  .hero-mockup {
+    padding: 3rem 0 2.25rem;
+  }
+
+  .hero-mockup-grid {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+
+  .hero-eyebrow-text {
+    font-size: 0.88rem;
+    margin-bottom: 0.5rem;
+  }
+
   .hero-heading-main {
-    font-size: 2.15rem;
+    font-size: 2rem;
+    line-height: 1.2;
+    margin-bottom: 1rem;
   }
 
   .hero-heading-main .brand-title {
-    font-size: 2.15rem;
+    font-size: 2rem;
   }
 
   .hero-heading-main .mfg-title {
-    font-size: 1.25rem;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+    margin-top: 0.2rem;
   }
 
   .hero-heading-main .highlight-blue {
-    font-size: 1.65rem;
+    font-size: 1.45rem;
+    letter-spacing: 0.5px;
+    word-break: break-word;
+  }
+
+  .hero-desc-clean {
+    font-size: 0.95rem;
+    line-height: 1.55;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-actions-row {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+  }
+
+  .hero-trio-wrapper {
+    margin-top: 0.5rem;
+  }
+
+  .hero-trio-img {
+    max-height: 250px;
+    width: 100%;
+    object-fit: contain;
+  }
+
+  /* Trust Indicators Strip */
+  .trust-strip-bar {
+    padding: 1.25rem 0;
   }
 
   .trust-strip-grid {
     grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .trust-item {
+    padding: 0.85rem 1rem;
+    background: var(--white);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--neutral-200);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+  }
+
+  /* Products Mockup Section */
+  .products-section-wrap {
+    padding: 3.5rem 0;
   }
 
   .products-mockup-grid {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .product-mockup-media {
+    height: 190px;
+    padding: 1.25rem;
+  }
+
+  .product-mockup-media img {
+    max-height: 155px;
+  }
+
+  .product-mockup-content {
+    padding: 1.25rem;
+  }
+
+  .product-mockup-title {
+    font-size: 1.25rem;
+  }
+
+  .capacity-pills-row {
+    gap: 0.35rem;
+    margin-bottom: 1rem;
+  }
+
+  .pill-chip {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.5rem;
+  }
+
+  .feature-checklist {
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .feature-checklist li {
+    font-size: 0.84rem;
+  }
+
+  /* About Us Mockup */
+  .about-mockup-section {
+    padding: 3.5rem 0;
+  }
+
+  .about-mockup-grid {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+
+  .about-factory-img-box img {
+    max-height: 240px;
+    object-fit: cover;
+  }
+
+  .about-text-col h2 {
+    font-size: 1.75rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .about-vision-card {
+    padding: 0.95rem 1rem;
+    gap: 0.75rem;
+  }
+
+  .about-vision-icon {
+    width: 38px;
+    height: 38px;
+  }
+
+  .about-vision-text h4 {
+    font-size: 0.92rem;
+  }
+
+  .about-vision-text p {
+    font-size: 0.84rem;
+  }
+
+  /* Industries Mockup */
+  .industries-mockup-section {
+    padding: 3.5rem 0;
+  }
+
+  .industries-mockup-grid {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+
+  .industries-left-col h2 {
+    font-size: 1.75rem;
+    margin-bottom: 0.75rem;
   }
 
   .industries-tiles-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+
+  .industry-tile {
+    padding: 0.9rem 0.5rem;
+    gap: 0.5rem;
+  }
+
+  .industry-tile-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .industry-tile-name {
+    font-size: 0.78rem;
+  }
+
+  .industries-bullet-box {
+    padding: 1rem;
   }
 
   .industries-bullet-list {
     grid-template-columns: 1fr;
+    gap: 0.35rem;
+  }
+
+  /* Tech Specs Mockup & Tables */
+  .techspecs-mockup-section {
+    padding: 3.5rem 0;
+  }
+
+  .techspecs-mockup-grid {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+
+  .techspecs-left-col h2 {
+    font-size: 1.65rem;
+    margin-bottom: 1rem;
+  }
+
+  .spec-table-box {
+    margin-bottom: 1.5rem;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--neutral-200);
+    overflow: hidden;
+  }
+
+  .spec-table-box::before {
+    content: '↔ Swipe table horizontally to see all specs';
+    display: block;
+    background-color: #f0f9ff;
+    color: #0284c7;
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-align: center;
+    padding: 0.35rem 0.5rem;
+    border-bottom: 1px solid #e0f2fe;
+    letter-spacing: 0.02em;
+  }
+
+  .spec-table-title {
+    font-size: 0.84rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0;
+  }
+
+  .mockup-table {
+    font-size: 0.75rem;
+  }
+
+  .mockup-table th {
+    padding: 0.45rem 0.55rem;
+    font-size: 0.72rem;
+    white-space: nowrap;
+  }
+
+  .mockup-table td {
+    padding: 0.45rem 0.55rem;
+    font-size: 0.75rem;
+  }
+
+  /* Plant gallery */
+  .plant-gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  /* Blue Ribbon Banner */
+  .ribbon-cta-section {
+    padding: 0 0 2.5rem;
   }
 
   .ribbon-cta-box {
     flex-direction: column;
     text-align: center;
-    padding: 1.5rem;
+    padding: 1.5rem 1.25rem;
+    gap: 1.25rem;
   }
 
   .ribbon-cta-left {
     flex-direction: column;
     text-align: center;
+    gap: 0.75rem;
+  }
+
+  .ribbon-cta-icon {
+    width: 44px;
+    height: 44px;
+  }
+
+  .ribbon-cta-title {
+    font-size: 1.2rem;
+  }
+
+  .ribbon-cta-sub {
+    font-size: 0.88rem;
+  }
+
+  .ribbon-cta-box .btn-pill-cyan {
+    width: 100%;
+    padding: 0.75rem 1.25rem;
+  }
+
+  /* General Content & Forms */
+  .hero-content h1 {
+    font-size: 2.15rem;
+  }
+
+  .section-title {
+    font-size: 1.75rem;
+  }
+
+  .industries-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .cf-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .calculator-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .calc-inputs-grid {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+
+  .contact-info-card {
+    padding: 1.75rem 1.25rem;
+    border-radius: var(--radius-lg);
+  }
+
+  .contact-info-title {
+    font-size: 1.5rem;
+  }
+
+  .contact-info-desc {
+    font-size: 0.88rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .contact-details-list {
+    gap: 1.15rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .inquiry-form-card {
+    padding: 2rem 1.25rem;
+    border-radius: 14px;
+  }
+
+  .inquiry-form-title {
+    font-size: 1.5rem;
+  }
+
+  .inquiry-form-desc {
+    font-size: 0.88rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .form-control {
+    font-size: 16px !important; /* Prevents auto-zoom on iOS Safari */
+    min-height: 50px;
+    height: 50px;
+    padding: 0.75rem 1rem;
+  }
+
+  .input-icon-group .form-control {
+    padding-left: 2.85rem !important;
+  }
+
+  .input-icon-group select.form-control {
+    padding-left: 2.85rem !important;
+    padding-right: 2.85rem !important;
+  }
+
+  select.form-control {
+    padding: 0.75rem 2.85rem 0.75rem 1rem !important;
+    line-height: 1.5 !important;
+  }
+
+  .btn-submit-inquiry {
+    min-height: 52px;
+    font-size: 1rem;
+    padding: 0.85rem 1.25rem;
+  }
+
+  /* Modal */
+  .modal-overlay {
+    padding: 0.75rem;
+  }
+
+  .modal-container {
+    padding: 1.5rem 1.25rem;
+    border-radius: var(--radius-lg);
+    max-height: 92vh;
+  }
+
+  #modalTitle {
+    font-size: 1.3rem !important;
+    padding-right: 36px;
+    line-height: 1.3;
+  }
+
+  .modal-close {
+    top: 1rem;
+    right: 1rem;
+    width: 34px;
+    height: 34px;
+  }
+
+  /* Compact non-intrusive floating buttons on mobile */
+  .floating-actions {
+    bottom: 16px;
+    right: 14px;
+    gap: 10px;
+    z-index: 998;
+  }
+
+  .floating-btn {
+    width: 46px;
+    height: 46px;
+    font-size: 1.25rem;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.22);
+  }
+
+  .floating-btn svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  /* Hide floating actions when modal is open so nothing is obscured */
+  body.modal-open .floating-actions {
+    opacity: 0 !important;
+    pointer-events: none !important;
+    visibility: hidden !important;
+  }
+
+  .brochure-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 1.75rem;
+  }
+
+  .brochure-content p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .footer-industrial {
+    padding: 3.5rem 0 0;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .footer-bottom-wrapper {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-card {
+    border-right: none;
+    border-bottom: 1px solid var(--neutral-200);
+    padding-bottom: 1.25rem;
+  }
+
+  .stat-card:last-child {
+    border-bottom: none;
+  }
+}
+
+/* Specific fine-tuning for smaller phones (iPhone SE, 360px - 480px) */
+@media (max-width: 480px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .hero-heading-main {
+    font-size: 1.75rem;
+  }
+
+  .hero-heading-main .brand-title {
+    font-size: 1.75rem;
+  }
+
+  .hero-heading-main .mfg-title {
+    font-size: 0.95rem;
+  }
+
+  .hero-heading-main .highlight-blue {
+    font-size: 1.25rem;
+  }
+
+  .hero-actions-row {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-actions-row .btn-pill {
+    width: 100%;
+    padding: 0.75rem 1.25rem;
+  }
+
+  .industries-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+}
+
+/* Extra narrow screens (<= 380px) */
+@media (max-width: 380px) {
+  .brand-tagline {
+    display: none;
+  }
+
+  .brand-name {
+    font-size: 1.05rem;
+  }
+
+  .nav-actions .btn-pill,
+  .nav-actions .btn {
+    padding: 0.35rem 0.65rem !important;
+    font-size: 0.72rem !important;
+  }
+
+  .industries-tiles-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+  }
+
+  .industry-tile {
+    padding: 0.75rem 0.35rem;
   }
 }

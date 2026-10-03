@@ -115,13 +115,19 @@
           <a href="/about" class="nav-link">About Us</a>
 
           <div class="dropdown">
-            <a href="/products" class="nav-link">
-              Products
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <a href="/products" class="nav-link dropdown-toggle-link">
+              <span>Products</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="6 9 12 15 18 9"></polyline>
               </svg>
             </a>
             <div class="dropdown-menu">
+              <a href="/products" class="dropdown-item" style="border-left: 3px solid #0077c8;">
+                <div>
+                  <strong>All Products Lineup</strong>
+                  <span class="dropdown-item-desc">Browse complete Sky Cool manufacturing catalog</span>
+                </div>
+              </a>
               <a href="/refrigerated-air-dryer" class="dropdown-item">
                 <div>
                   <strong>Refrigerated Air Dryers</strong>
@@ -150,15 +156,19 @@
         </nav>
 
         <div class="nav-actions">
-          <button type="button" class="btn btn-primary btn-sm" data-open-quote-modal
+          <button type="button" class="btn-pill btn-pill-primary" data-open-quote-modal
             data-product-name="Contact Page Inquiry">
-            Get Quote
+            Get a Quote
           </button>
           <button class="mobile-toggle" aria-label="Toggle navigation menu">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <line x1="3" y1="12" x2="21" y2="12"></line>
+            <svg class="icon-hamburger" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
               <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="12" x2="21" y2="12"></line>
               <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+            <svg class="icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
             </svg>
           </button>
         </div>
@@ -275,48 +285,84 @@
 
               <div class="form-row">
                 <div class="form-group">
-                  <label for="cName">Your Name *</label>
-                  <input type="text" id="cName" name="name" class="form-control" placeholder="Full Name" required>
+                  <label for="cName">Your Name <span class="req-star">*</span></label>
+                  <div class="input-icon-group">
+                    <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                    <input type="text" id="cName" name="name" class="form-control" placeholder="Enter Full Name" required autocomplete="name">
+                  </div>
                 </div>
                 <div class="form-group">
                   <label for="cCompany">Company Name</label>
-                  <input type="text" id="cCompany" name="company" class="form-control" placeholder="Industrial Firm">
+                  <div class="input-icon-group">
+                    <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect><line x1="9" y1="22" x2="9" y2="22.01"></line><line x1="15" y1="22" x2="15" y2="22.01"></line><line x1="9" y1="6" x2="9" y2="6.01"></line><line x1="15" y1="6" x2="15" y2="6.01"></line><line x1="9" y1="10" x2="9" y2="10.01"></line><line x1="15" y1="10" x2="15" y2="10.01"></line><line x1="9" y1="14" x2="9" y2="14.01"></line><line x1="15" y1="14" x2="15" y2="14.01"></line></svg>
+                    <input type="text" id="cCompany" name="company" class="form-control" placeholder="Company / Factory Name" autocomplete="organization">
+                  </div>
                 </div>
               </div>
 
               <div class="form-row">
                 <div class="form-group">
-                  <label for="cPhone">Mobile / WhatsApp Number *</label>
-                  <input type="tel" id="cPhone" name="phone" class="form-control" placeholder="+91 XXXXX XXXXX"
-                    required>
+                  <label for="cPhone">Mobile / WhatsApp <span class="req-star">*</span></label>
+                  <div class="input-icon-group">
+                    <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                    <input type="tel" id="cPhone" name="phone" class="form-control" placeholder="+91 98765 43210" required autocomplete="tel">
+                  </div>
                 </div>
                 <div class="form-group">
-                  <label for="cEmail">Email Address *</label>
-                  <input type="email" id="cEmail" name="email" class="form-control" placeholder="name@company.com"
-                    required>
+                  <label for="cEmail">Work Email Address <span class="req-star">*</span></label>
+                  <div class="input-icon-group">
+                    <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                    <input type="email" id="cEmail" name="email" class="form-control" placeholder="name@company.com" required autocomplete="email">
+                  </div>
                 </div>
               </div>
 
               <div class="form-group-full">
-                <label for="cProduct">Equipment Required *</label>
-                <select id="cProduct" name="product" class="form-control" required>
-                  <option value="Refrigerated Air Dryer (20–200 CFM)">Refrigerated Air Dryer (20–200 CFM)</option>
-                  <option value="Industrial Water Chiller (1 & 2 Ton)">Industrial Water Chiller (1 & 2 Ton)</option>
-                  <option value="Industrial Water Cooler (20–100 Liter)">Industrial Water Cooler (20–100 Liter)</option>
-                  <option value="Custom Cooling Plant">Custom Plant Cooling Solution</option>
-                  <option value="General Technical Inquiry">General Technical Consultation</option>
-                </select>
+                <label for="cProduct">Equipment Required <span class="req-star">*</span></label>
+                <div class="input-icon-group">
+                  <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4m0 12v4M4.93 4.93l2.83 2.83m8.48 8.48l2.83 2.83M2 12h4m12 0h4M4.93 19.07l2.83-2.83m8.48-8.48l2.83-2.83"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                  <select id="cProduct" name="product" class="form-control" required>
+                    <option value="" disabled selected>-- Select Equipment / Product --</option>
+                    <option value="Refrigerated Air Dryer (20–200 CFM)">Refrigerated Air Dryer (20–200 CFM)</option>
+                    <option value="Industrial Water Chiller (1 & 2 Ton)">Industrial Water Chiller (1 & 2 Ton)</option>
+                    <option value="Industrial Water Cooler (20–100 Liter)">Industrial Water Cooler (20–100 Liter)</option>
+                    <option value="Custom Cooling Plant">Custom Plant Cooling Solution</option>
+                    <option value="General Technical Inquiry">General Technical Consultation</option>
+                  </select>
+                </div>
               </div>
 
               <div class="form-group-full">
                 <label for="cMessage">Technical Specifications / Requirement</label>
-                <textarea id="cMessage" name="message" class="form-control" rows="4"
-                  placeholder="Please specify your compressor flow CFM, ambient temperature, chiller tonnage (TR / kW), or application requirements..."></textarea>
+                <div class="input-icon-group textarea-group">
+                  <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                  <textarea id="cMessage" name="message" class="form-control" rows="4"
+                    placeholder="Please specify compressor flow CFM, ambient temperature, chiller tonnage (TR / kW), or application requirements..."></textarea>
+                </div>
               </div>
 
-              <button type="submit" class="btn btn-primary btn-lg" style="width:100%;">
-                Submit Inquiry to Sky Cool System
+              <button type="submit" class="btn-submit-inquiry">
+                <span>Submit Inquiry to Sky Cool System</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="22" y1="2" x2="11" y2="13"></line>
+                  <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
               </button>
+
+              <div class="form-trust-row">
+                <span class="form-trust-item">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                  Direct Factory Dispatch
+                </span>
+                <span class="form-trust-item">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                  Response &lt; 30 mins
+                </span>
+                <span class="form-trust-item">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                  ISO 9001:2015 Assured
+                </span>
+              </div>
             </form>
           </div>
 
@@ -364,8 +410,8 @@
             </div>
           </div>
           <p>
-            Manufacturer specializing in precision Refrigerated Air Dryers, Industrial
-            Water Chillers, and Stainless Steel Water Coolers in Ahmedabad, Gujarat, India.
+            A premier industrial manufacturer specializing in precision Refrigerated Air Dryers, Industrial
+            Water Chillers, and Stainless Steel Water Coolers. Committed to zero-defect manufacturing and 24/7 client satisfaction across India.
           </p>
         </div>
 
@@ -452,28 +498,44 @@
 
         <div class="form-row">
           <div class="form-group">
-            <label for="mName">Your Name *</label>
-            <input type="text" id="mName" name="name" class="form-control" required placeholder="Name">
+            <label for="mName">Your Name <span class="req-star">*</span></label>
+            <div class="input-icon-group">
+              <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+              <input type="text" id="mName" name="name" class="form-control" required placeholder="Full Name" autocomplete="name">
+            </div>
           </div>
           <div class="form-group">
-            <label for="mPhone">Phone Number *</label>
-            <input type="tel" id="mPhone" name="phone" class="form-control" required placeholder="+91 XXXXX XXXXX">
+            <label for="mPhone">Phone Number <span class="req-star">*</span></label>
+            <div class="input-icon-group">
+              <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              <input type="tel" id="mPhone" name="phone" class="form-control" required placeholder="+91 98765 43210" autocomplete="tel">
+            </div>
           </div>
         </div>
 
         <div class="form-group-full">
-          <label for="mEmail">Email Address *</label>
-          <input type="email" id="mEmail" name="email" class="form-control" required placeholder="name@company.com">
+          <label for="mEmail">Email Address <span class="req-star">*</span></label>
+          <div class="input-icon-group">
+            <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            <input type="email" id="mEmail" name="email" class="form-control" required placeholder="name@company.com" autocomplete="email">
+          </div>
         </div>
 
         <div class="form-group-full">
           <label for="mMessage">Specifications / Capacity Needed</label>
-          <textarea id="mMessage" name="message" class="form-control" rows="3"
-            placeholder="Enter desired CFM, pressure, chilling load, or installation requirements..."></textarea>
+          <div class="input-icon-group textarea-group">
+            <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+            <textarea id="mMessage" name="message" class="form-control" rows="3"
+              placeholder="Enter desired CFM, pressure, chilling load, or installation requirements..."></textarea>
+          </div>
         </div>
 
-        <button type="submit" class="btn btn-primary" style="width:100%;">
-          Submit Request
+        <button type="submit" class="btn-submit-inquiry">
+          <span>Submit Quote Request</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="22" y1="2" x2="11" y2="13"></line>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+          </svg>
         </button>
       </form>
     </div>

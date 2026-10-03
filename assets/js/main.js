@@ -43,6 +43,7 @@ function initNavbar() {
   const navbar = document.querySelector('.navbar');
   const mobileToggle = document.querySelector('.mobile-toggle');
   const navLinks = document.querySelector('.nav-links');
+  const dropdowns = document.querySelectorAll('.nav-links .dropdown');
 
   // Sticky navbar shadow on scroll
   window.addEventListener('scroll', () => {
@@ -55,20 +56,49 @@ function initNavbar() {
 
   // Mobile menu toggle
   if (mobileToggle && navLinks) {
-    mobileToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('open');
-      const icon = mobileToggle.querySelector('svg, i');
-      if (navLinks.classList.contains('open')) {
-        mobileToggle.setAttribute('aria-expanded', 'true');
-      } else {
-        mobileToggle.setAttribute('aria-expanded', 'false');
+    mobileToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = navLinks.classList.toggle('open');
+      mobileToggle.classList.toggle('active', isOpen);
+      mobileToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      document.body.classList.toggle('menu-open', isOpen);
+    });
+
+    // Mobile Dropdown Accordion Toggle
+    dropdowns.forEach(dropdown => {
+      const toggleLink = dropdown.querySelector('.nav-link, .dropdown-toggle-link');
+      if (toggleLink) {
+        toggleLink.addEventListener('click', (e) => {
+          if (window.innerWidth <= 1024) {
+            e.preventDefault();
+            e.stopPropagation();
+            dropdown.classList.toggle('open');
+          }
+        });
       }
+    });
+
+    // Close menu when clicking actual destination links
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        // If this is the dropdown toggle trigger on mobile, don't close the drawer
+        if (window.innerWidth <= 1024 && link.closest('.dropdown') && link.nextElementSibling?.classList.contains('dropdown-menu')) {
+          return;
+        }
+        navLinks.classList.remove('open');
+        mobileToggle.classList.remove('active');
+        mobileToggle.setAttribute('aria-expanded', 'false');
+        document.body.classList.remove('menu-open');
+      });
     });
 
     // Close menu when clicking outside
     document.addEventListener('click', (e) => {
-      if (!navbar.contains(e.target) && navLinks.classList.contains('open')) {
+      if (!navbar?.contains(e.target) && navLinks.classList.contains('open')) {
         navLinks.classList.remove('open');
+        mobileToggle.classList.remove('active');
+        mobileToggle.setAttribute('aria-expanded', 'false');
+        document.body.classList.remove('menu-open');
       }
     });
   }
@@ -184,6 +214,7 @@ function initModals() {
       }
       if (quoteModal) {
         quoteModal.classList.add('active');
+        document.body.classList.add('modal-open');
         document.body.style.overflow = 'hidden';
       }
     });
@@ -193,6 +224,7 @@ function initModals() {
     btn.addEventListener('click', () => {
       if (quoteModal) {
         quoteModal.classList.remove('active');
+        document.body.classList.remove('modal-open');
         document.body.style.overflow = '';
       }
     });
@@ -203,6 +235,7 @@ function initModals() {
     quoteModal.addEventListener('click', (e) => {
       if (e.target === quoteModal) {
         quoteModal.classList.remove('active');
+        document.body.classList.remove('modal-open');
         document.body.style.overflow = '';
       }
     });
@@ -214,6 +247,19 @@ function initModals() {
    Routes to skycoolsystem2015@gmail.com and WhatsApp +91 90333 75597
    ========================================================================== */
 function initInquiryForms() {
+  // Dim floating action buttons when user is actively filling out any form field
+  document.addEventListener('focusin', (e) => {
+    if (e.target && e.target.matches && e.target.matches('input, select, textarea')) {
+      document.body.classList.add('form-focused');
+    }
+  });
+
+  document.addEventListener('focusout', (e) => {
+    if (e.target && e.target.matches && e.target.matches('input, select, textarea')) {
+      document.body.classList.remove('form-focused');
+    }
+  });
+
   const forms = document.querySelectorAll('form[data-inquiry-form]');
 
   forms.forEach(form => {
